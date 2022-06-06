@@ -1,10 +1,12 @@
 import subprocess
 import os
+
+
 def echo(text):
     print(text)
 
 def ping(text):
-    pin = subprocess.getoutput(f"ping 192.168.1.1")
+    pin = subprocess.getoutput(f"ping 192.168.0.1")
     print(pin)
 
 def login(text):
@@ -26,7 +28,6 @@ def file(text):
 def exit(text):
     os._exit(0)
 
-#------------------
 cmd={"echo": echo,"ping": ping,"login": login,"list": list,"msg": msg,"file": file,"exit": exit}
 while(True):
     try:
@@ -34,5 +35,3 @@ while(True):
         cmd[text.split()[0]](text)
     except:
         print("Wrong input")
-
-
